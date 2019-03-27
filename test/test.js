@@ -15,7 +15,7 @@ afterEach((done) => {
 });
 
 //don't need to test this every time, should be consistently working
-xdescribe('Sample Data', function() {
+describe('Sample Data', function() {
   describe('Generate Sample Data Function', function() {
     it('should create a json file with sample data', function() {
       fs.unlink(path.join(__dirname, '../sample-data/sample-data.json'), (err, data) => {
