@@ -26,3 +26,6 @@ dist/
 
 # env variables
 .env
+
+# test coverage
+.nyc_output
