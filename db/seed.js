@@ -1,5 +1,3 @@
-// seed database with sample data;
-
 const House = require('./index');
 const fs = require('fs');
 const path = require('path');
