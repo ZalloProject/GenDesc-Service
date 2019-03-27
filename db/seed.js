@@ -1,3 +1,4 @@
+require('dotenv').config();
 const House = require('./index');
 const fs = require('fs');
 const path = require('path');
