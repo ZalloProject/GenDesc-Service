@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/ZalloProject/SimilarHomes
+  - https://github.com/ZalloProject/Form-Service
+  - https://github.com/ZalloProject/Picture-Service
+  - https://github.com/ZalloProject/james-proxy
 
 ## Table of Contents
 
