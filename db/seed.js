@@ -4,7 +4,7 @@ const path = require('path');
 
 fs.readFile(path.join(__dirname, '../sample-data/sample-data.json'), (err, data) => {
   sampleData = JSON.parse(data.toString());
-  sampleData.forEach(record => {
-    House.create(record);
+  House.create(sampleData, (err, data) => {
+    console.log(err, data);
   });
 });
