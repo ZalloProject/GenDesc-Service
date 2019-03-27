@@ -28,6 +28,8 @@
     "mongoose": "^5.4.20",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "request": "^2.88.0",
+    "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
