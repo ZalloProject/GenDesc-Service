@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
 require('dotenv').config();
-
+const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 const houseSchema = mongoose.Schema({
@@ -20,7 +19,7 @@ const houseSchema = mongoose.Schema({
   daysListed: Number,
   saves: Number,
 });
-
-let House = mongoose.model('House', houseSchema);
-
-module.exports = House;
+module.exports = {
+  House: mongoose.model('House', houseSchema),
+  House_test: mongoose.model('House_test', houseSchema),
+}

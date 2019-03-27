@@ -1,10 +1,16 @@
-const House = require('./index');
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
-fs.readFile(path.join(__dirname, '../sample-data/sample-data.json'), (err, data) => {
-  sampleData = JSON.parse(data.toString());
-  House.create(sampleData, (err, data) => {
-    console.log(err, data);
+module.exports = (model, callback) => {
+  fs.readFile(path.join(__dirname, '../sample-data/sample-data.json'), (err, data) => {
+    sampleData = JSON.parse(data.toString());
+    model.create(sampleData, (err, data) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, data);
+      }
+    });
   });
-});
+}
