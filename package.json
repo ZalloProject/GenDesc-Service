@@ -7,17 +7,37 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "babel-preset-airbnb"
+    ]
+  },
   "scripts": {
-    "test": "mocha ./test/test.js"
+    "test": "mocha ./test/test.js",
+    "build": "webpack --watch --config ./webpack.config.js --mode development",
+    "start": "webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js",
+    "start:prod": "node ./server/index.js"
   },
   "dependencies": {
     "chai": "^4.2.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "mocha": "^6.0.2",
-    "mongoose": "^5.4.20"
+    "mongoose": "^5.4.20",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-airbnb": "^3.2.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }
