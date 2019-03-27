@@ -83,8 +83,6 @@ Summerville, SC 29483
 Bettendorf, IA 52722
 254 Courtland Street 
 Wantagh, NY 11793
-66 Hanover Dr. 
-Unit A 
 Reading, MA 01867
 132 Gulf Road 
 Summerfield, FL 34491
@@ -201,30 +199,36 @@ Amityville, NY 11701
 8517 Arch Court 
 Windermere, FL 34786`;
 addresses = addresses.split(/[\n\r]/);
+console.log(addresses);
 let addArr = [];
-for (let i = 1; i < addresses.length; i += 2) {
-  addArr.push(addresses[i] + addresses[i + 1]);
+for (let i = 1; i < addresses.length; i++) { 
+  if (addresses[i][addresses[i].length - 1] === ' ') {
+    addArr.push(addresses[i] + addresses[i + 1]);
+  }
 }
 let houseTypes = ['single family', 'townhouse', 'condo'];
 let sampleData = [];
 for (let i = 0; i < addArr.length; i++) { 
   let house = {};
+  house._id = i;
   house.address = addArr[i];
   house.price = Math.floor(Math.random() * 1000000 + 100000);
   house.beds = Math.floor(Math.random() * 6 + 1);
-  house.baths = Math.floor(Math.random() * 3 + 1);
-  house.floorSize = Math.floor(Math.random() * 4500 + 750);
+  house.baths = Math.floor(Math.random() * 2 + 1);
+  house.floorSize = Math.floor(Math.random() * 3750 + 750);
   house.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae eros massa. Etiam pretium ex purus, vel tempus diam pretium eget. Curabitur hendrerit, tortor sed ultrices finibus, tortor eros condimentum tortor, ac mollis augue arcu sed felis. Vestibulum et aliquet ex. Aenean cursus elementum eleifend. Curabitur sit amet finibus mauris, et porttitor justo. Maecenas imperdiet euismod elit, eu dictum nibh faucibus quis. Pellentesque quis ullamcorper dolor. Morbi vestibulum eget ligula non venenatis.'; 
   house.type = houseTypes[Math.floor(Math.random() * houseTypes.length)];
-  house.year = Math.floor(Math.random() * 2019 + 1930);
+  house.year = Math.floor(Math.random() * 88 + 1930);
   house.heating = 'other';
   house.cooling = 'refrigeration';
   house.parking = Math.floor(Math.random() * 6 + 1);
-  house.lotSize = Math.floor(Math.random() * 10000 + house.floorSize);
-  house.daysListed = Math.floor(Math.random() * 365 + 1);
+  house.lotSize = Math.floor(Math.random() * (10000 - house.floorSize) + house.floorSize);
+  house.daysListed = Math.floor(Math.random() * 364 + 1);
   house.saves = Math.floor(Math.random() * 150);
   sampleData.push(house);
 }
+console.log(sampleData);
+
 sampleData = JSON.stringify(sampleData);
 fs.writeFile('./sample-data/sample-data.json', sampleData, err => {
   if (err) {
