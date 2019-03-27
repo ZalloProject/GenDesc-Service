@@ -1,6 +1,6 @@
-# Project Name
+# Zallo Project
 
-> Project description
+> General Description Service
 
 ## Related Projects
 
