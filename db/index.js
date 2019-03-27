@@ -23,6 +23,4 @@ const houseSchema = mongoose.Schema({
 
 let House = mongoose.model('House', houseSchema);
 
-console.log(House);
-
 module.exports = House;
