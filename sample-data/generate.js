@@ -203,7 +203,7 @@ const createSampleFile = (callback) => {
   let addArr = [];
   for (let i = 1; i < addresses.length; i++) { 
     if (addresses[i][addresses[i].length - 1] === ' ') {
-      addArr.push(addresses[i] + addresses[i + 1]);
+      addArr.push(addresses[i] + '\n' + addresses[i + 1]);
     }
   }
   let houseTypes = ['single family', 'townhouse', 'condo'];
@@ -233,7 +233,7 @@ const createSampleFile = (callback) => {
     if (err) {
       callback(err);
     } else {
-      callback(null, true);
+      callback(null, sampleData);
     }
   });
 };
