@@ -206,26 +206,50 @@ const createSampleFile = (callback) => {
       addArr.push(addresses[i] + '\n' + addresses[i + 1]);
     }
   }
-  let houseTypes = ['single family', 'townhouse', 'condo'];
+  let houseTypes = ['Single Family', 'Townhouse', 'Condo'];
+  let heatingTypes = ['Other', 'Central', 'Electric', 'Forced Air', 'Gas'];
+  let coolingTypes = ['Central', 'Refrigeration', 'Roof', 'Solar'];
+  let appliances = ['Dishwasher', 'Garbage Disposal', 'Microwave', 'Range / Oven', 'Washing/ Drying Unit', 'Refrigerator'];
+  let flooring = ['Carpet', 'Laminate', 'Tile', 'Hardwood'];
+  let interiorFeatures = ['Fireplace', 'Vaulted Ceiling', 'Ceiling Fan'];
+  let construction = ['Modern', 'Spanish', 'Frame - Wood', 'Pueblo']
+  let roofTypes = ['Tile', 'Built up'];
+  let exteriorTypes = ['Stucco', 'Brick', 'Stone Veneer', 'Wood'];
   let sampleData = [];
   for (let i = 0; i < addArr.length; i++) { 
     let house = {};
+    house.appliances = [];
+    for(let j = 0; j < Math.floor(Math.random() * appliances.length); j++) {
+      house.appliances.push(appliances[Math.floor(Math.random() * appliances.length)]);
+    }
+    house.interiorFeatures = [];
+    for(let j = 0; j < Math.floor(Math.random() * interiorFeatures.length); j++) {
+      house.interiorFeatures.push(interiorFeatures[Math.floor(Math.random() * interiorFeatures.length)]);
+    }
+    house.construction = construction[Math.floor(Math.random() * construction.length)];
+    house.roof = roofTypes[Math.floor(Math.random() * roofTypes.length)];
+    house.exterior = exteriorTypes[Math.floor(Math.random() * exteriorTypes.length)];
+    house.flooring = flooring[Math.floor(Math.random() * flooring.length)];
     house._id = i;
     house.address = addArr[i];
     house.price = Math.floor(Math.random() * 1000000 + 100000);
     house.beds = Math.floor(Math.random() * 6 + 1);
     house.baths = Math.floor(Math.random() * 2 + 1);
+    house.rooms = house.beds + house.baths + Math.floor(Math.random() * 3);
+    house.stories = Math.floor(Math.random() * 3 + 1);
     house.floorSize = Math.floor(Math.random() * 3750 + 750);
+    house.spaces = ['Pool', 'N/A'][Math.floor(Math.random() * 2)];
     house.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae eros massa. Etiam pretium ex purus, vel tempus diam pretium eget. Curabitur hendrerit, tortor sed ultrices finibus, tortor eros condimentum tortor, ac mollis augue arcu sed felis. Vestibulum et aliquet ex. Aenean cursus elementum eleifend. Curabitur sit amet finibus mauris, et porttitor justo. Maecenas imperdiet euismod elit, eu dictum nibh faucibus quis. Pellentesque quis ullamcorper dolor. Morbi vestibulum eget ligula non venenatis.'; 
     house.type = houseTypes[Math.floor(Math.random() * houseTypes.length)];
     house.year = Math.floor(Math.random() * 88 + 1930);
-    house.heating = 'other';
-    house.cooling = 'refrigeration';
+    house.heating = heatingTypes[Math.floor(Math.random() * heatingTypes.length)];
+    house.cooling = coolingTypes[Math.floor(Math.random() * coolingTypes.length)];
     house.parking = Math.floor(Math.random() * 6 + 1);
     house.lotSize = Math.floor(Math.random() * (10000 - house.floorSize) + house.floorSize);
     house.daysListed = Math.floor(Math.random() * 364 + 1);
     house.saves = Math.floor(Math.random() * 150);
     sampleData.push(house);
+    console.log(i);
   }
 
   sampleData = JSON.stringify(sampleData);
