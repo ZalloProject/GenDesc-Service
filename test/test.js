@@ -6,7 +6,6 @@ const app = require('../server/index');
 const createSampleFile = require('../sample-data/generate');
 const request = require('supertest');
 const seed = require('../db/seed');
-
 beforeEach((done) => {
   seed(House_test, done);
 });
