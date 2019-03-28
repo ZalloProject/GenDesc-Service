@@ -1,0 +1,34 @@
+.container-top {
+    display: flex;
+}
+h1, h2, h3, h4, h5, p {
+    margin:0px;
+}
+.light-facts {
+    margin-top: 15px;
+}
+.container-main {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 40px;
+}
+.todo {
+    border: 1px solid black;
+}
+.container-facts-items {
+    display: flex;
+    height: 150px;
+    grid-template-rows: 33% 33% auto;
+    grid-auto-columns: 33% 33% auto;
+    flex-wrap: wrap;
+}
+.fact{
+    width: 33%;
+    display: flex;
+}
+img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
