@@ -16,31 +16,68 @@
 #       -run:
 #           name: server-test
 #           command: npm test
+# version: 2
+# jobs:
+#   build:
+#     docker:
+#       - image: circleci/node:8.15.0
+#     steps:
+#       - checkout
+#     #   - restore_cache:
+#     #     keys:
+#     #       - v1-dependencies-{{ checksum "package.json" }}
+#     #       - v1-dependencies-
+#     #  - save_cache:
+#     #     paths:
+#     #       - node_modules
+#     #     key: v1-dependencies-{{ checksum "package.json" }}
+#       - run: npm install -g & npm run build & npm install -g mocha
+#   test:
+#     docker:
+#       - image: circleci/node:8.15.0
+#     steps:
+#       - checkout
+#       - run: mocha ./public/test-bundle.js --require ./test/setup.js
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build
+#       - test
 version: 2
 jobs:
   build:
+    working_directory: ~/GenDesc
     docker:
       - image: circleci/node:8.15.0
     steps:
       - checkout
-    #   - restore_cache:
-    #     keys:
-    #       - v1-dependencies-{{ checksum "package.json" }}
-    #       - v1-dependencies-
-    #  - save_cache:
-    #     paths:
-    #       - node_modules
-    #     key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm install -g & npm run build & npm install -g mocha
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
   test:
     docker:
       - image: circleci/node:8.15.0
     steps:
       - checkout
-      - run: mocha ./public/test-bundle.js --require ./test/setup.js
+      - run:
+          name: Test
+          command: npm test
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - build
