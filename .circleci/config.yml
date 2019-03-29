@@ -59,7 +59,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install npm wee
-          command: npm install & npm install mocha -g
+          command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -71,7 +71,7 @@ jobs:
       - checkout
       - run:
           name: Test
-          command: npm test & mocha ./public/test-bundle.js --require ./test/setup.js 
+          command: npm test & npm run test:client:circleci
 
 
 workflows:
