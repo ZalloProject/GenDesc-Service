@@ -6,15 +6,7 @@
 #     working_directory: ~/GenDesc
 #     steps:
 #       - checkout
-#       - restore_cache:
-#          keys:
-#            - v1-dependencies-{{ checksum "package.json" }}
-#            - v1-dependencies-
-
-#      - save_cache:
-#          paths:
-#            - node_modules
-#          key: v1-dependencies-{{ checksum "package.json" }}
+#      
 #       - run: 
 #           name: build
 #           command: npm build
@@ -31,7 +23,15 @@ jobs:
       - image: circleci/node:8.15.0
     steps:
       - checkout
-      - run: npm run build & npm install -g mocha
+    #   - restore_cache:
+    #     keys:
+    #       - v1-dependencies-{{ checksum "package.json" }}
+    #       - v1-dependencies-
+    #  - save_cache:
+    #     paths:
+    #       - node_modules
+    #     key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm install -g & npm run build & npm install -g mocha
   test:
     docker:
       - image: circleci/node:8.15.0
