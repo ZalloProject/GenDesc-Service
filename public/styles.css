@@ -1,11 +1,14 @@
 .container-top {
     display: flex;
 }
+* {
+    font-family: Tahoma, Geneva, sans-serif;
+}
 h1, h2, h3, h4, h5, p {
     margin:0px;
 }
 .light-facts {
-    margin-top: 15px;
+    margin: 20px 0px 20px 0px;
 }
 .container-main {
     display: flex;
@@ -16,12 +19,17 @@ h1, h2, h3, h4, h5, p {
 .todo {
     border: 1px solid black;
 }
+
 .container-facts-items {
     display: flex;
     height: 150px;
     grid-template-rows: 33% 33% auto;
     grid-auto-columns: 33% 33% auto;
     flex-wrap: wrap;
+    margin-top: 2%;
+}
+.container-facts {
+    margin-top: 8%
 }
 .fact{
     width: 33%;
@@ -31,4 +39,42 @@ img {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+}
+hr {
+    opacity: 0.4;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.more-info-title {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.interior-container-interior{
+    column-count: 2;
+    column-gap: 30px;
+}
+.container-bigger-fact{
+    margin-top: 10px;
+    margin-left: 10px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+}
+.container-bigger-fact > div{
+    margin-top: 10px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+}
+.greyed-out {
+    color:#aaa;
+}
+#see-more {
+    margin-top: 10px;
+    border: none;
+    color: #006AFF;
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 20%;
 }

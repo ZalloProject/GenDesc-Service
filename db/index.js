@@ -18,6 +18,15 @@ const houseSchema = mongoose.Schema({
   lotSize: Number,
   daysListed: Number,
   saves: Number,
+  appliances: Array,
+  interiorFeatures: Array,
+  construction: String,
+  roof: String,
+  exterior: String,
+  flooring: String,
+  rooms: Number,
+  stories: Number,
+  spaces: String,
 });
 module.exports = {
   House: mongoose.model('House', houseSchema),

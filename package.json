@@ -16,6 +16,7 @@
   },
   "scripts": {
     "test": "nyc mocha ./test/test.js --exit",
+    "test:client": "webpack --watch --config ./webpack.config.js --mode development & nodemon ./server/test.js",
     "build": "webpack --watch --config ./webpack.config.js --mode development",
     "start": "webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js",
     "start:prod": "node ./server/index.js"
@@ -23,6 +24,8 @@
   "dependencies": {
     "chai": "^4.2.0",
     "dotenv": "^7.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
     "mocha": "^6.0.2",
     "mongoose": "^5.4.20",
@@ -30,6 +33,7 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "request": "^2.88.0",
+    "sinon": "^7.3.1",
     "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
