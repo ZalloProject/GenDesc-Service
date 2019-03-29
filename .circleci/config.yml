@@ -1,0 +1,26 @@
+version: 2
+jobs: 
+  build:
+    docker:
+      - image: circleci/node:8.15.0
+    working_directory: ~/GenDesc
+    steps:
+      - checkout
+      - restore_cache:
+         keys:
+           - v1-dependencies-{{ checksum "package.json" }}
+           - v1-dependencies-
+
+     - save_cache:
+         paths:
+           - node_modules
+         key: v1-dependencies-{{ checksum "package.json" }}
+      - run: 
+          name: build
+          command: npm build
+      - run: 
+          name: client-test
+          command: mocha ./public/test-bundle.js --require ./test/setup.js 
+      -run:
+          name: server-test
+          command: npm test
