@@ -71,7 +71,8 @@ jobs:
       - checkout
       - run:
           name: Test
-          command: npm test
+          command: npm test & mocha ./public/test-bundle.js --require ./test/setup.js 
+
 
 workflows:
   version: 2
@@ -81,3 +82,4 @@ workflows:
       - test:
           requires:
             - build
+            

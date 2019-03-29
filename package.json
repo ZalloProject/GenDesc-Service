@@ -18,7 +18,7 @@
     ]
   },
   "scripts": {
-    "test": "nyc mocha ./test/test.js --exit",
+    "test": "mocha ./test/test.js --exit",
     "test:client": "webpack --watch --config ./webpack.config.js --mode development & nodemon ./server/test.js",
     "build": "webpack --config ./webpack.config.js --mode development",
     "start": "webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js",
