@@ -7,6 +7,9 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "browser": {
+    "jsdom": false
+  },
   "babel": {
     "presets": [
       "@babel/preset-env",
@@ -17,7 +20,7 @@
   "scripts": {
     "test": "nyc mocha ./test/test.js --exit",
     "test:client": "webpack --watch --config ./webpack.config.js --mode development & nodemon ./server/test.js",
-    "build": "webpack --watch --config ./webpack.config.js --mode development",
+    "build": "webpack --config ./webpack.config.js --mode development",
     "start": "webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js",
     "start:prod": "node ./server/index.js"
   },
@@ -27,6 +30,8 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
+    "jsdom": "^14.0.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^6.0.2",
     "mongoose": "^5.4.20",
     "nyc": "^13.3.0",

@@ -1,0 +1,16 @@
+version: 2
+jobs: 
+  build: 
+    working_directory: ~/
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run: 
+          name: build
+          command: npm build
+      - run: 
+          name: client-test
+          command: mocha ./public/test-bundle.js --require ./test/setup.js 
+      -run:
+          name: server-test
+          command: npm test

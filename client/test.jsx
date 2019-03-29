@@ -5,7 +5,7 @@ import {spy} from 'sinon';
 import GenDesc from './app.jsx';
 import Adapter from 'enzyme-adapter-react-16';
 import house from './testhouse';
-console.log(house);
+
 configure({adapter: new Adapter()});
 
 spy(GenDesc.prototype, 'render');
