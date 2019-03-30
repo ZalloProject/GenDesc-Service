@@ -71,7 +71,7 @@ jobs:
       - checkout
       - run:
           name: Test
-          command: npm test & npm run test:client:circleci
+          command: npm install & npm test & npm run test:client:circleci
 
 
 workflows:
