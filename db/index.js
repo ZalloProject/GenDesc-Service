@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://zallo:zallodb@cluster0-s3ma8.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
 const houseSchema = mongoose.Schema({
   _id: Number,

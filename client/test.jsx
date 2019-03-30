@@ -3,9 +3,14 @@ import {expect} from 'chai';
 import {shallow, mount, render, configure} from 'enzyme';
 import {spy} from 'sinon';
 import GenDesc from './app.jsx';
+import FactsAndFeatures from './quickFacts.jsx';
+import TopDescription from './TopDescription.jsx';
+import Details from './Details.jsx';
 import Adapter from 'enzyme-adapter-react-16';
+import ShowMore from './ShowMore.jsx';
 import house from './testhouse';
-console.log(house);
+import MortgageCalculator from './MortgageCalculator.jsx';
+
 configure({adapter: new Adapter()});
 
 spy(GenDesc.prototype, 'render');
@@ -46,6 +51,30 @@ describe('<GenDesc />', () => {
         expect(wrapper.find('greyed-out').findWhere(node => node.text() === 'Unit Count: ')).to.exist;
         wrapper.find('#see-more').simulate('click');
         expect(wrapper.find('greyed-out').findWhere(node => node.text() === 'Unit Count: ')).to.be.empty;
+    });
+  });
+  describe('Component Rendering', () => {
+    const wrapper = mount(<GenDesc house={house} />);
+    it('should render <Top Description />', () => {
+      expect(wrapper.find(TopDescription).length).to.equal(1);
+    });
+    it('should render <FactsAndFeatures />', () => {
+      expect(wrapper.find(FactsAndFeatures).length).to.equal(1);
+    });
+    it('should render <Details />', () => {
+      expect(wrapper.find(Details).length).to.equal(1);
+    });
+    it('should not render <ShowMore /> on load', () => {
+      expect(wrapper.find(ShowMore).length).to.equal(0);
+    });
+  });
+  describe('Mortgage Calculator', () => {
+    const wrapper = mount(<GenDesc house={house} />);
+    it('should not render the calculator until button clicked', () => {
+      expect(wrapper.find('#calulator-main').length).to.equal(0);
+     wrapper.find('#calculator-button').simulate('click')
+      expect(wrapper.find('#calulator-main').length).to.equal(1);
+
     });
   });
 });
