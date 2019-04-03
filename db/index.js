@@ -1,6 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://zallo:zallodb@cluster0-s3ma8.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+
+mongoose.connect('mongodb+srv://zallo:zallo123@cluster0-s3ma8.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
 
 const houseSchema = mongoose.Schema({
   _id: Number,
@@ -28,7 +29,8 @@ const houseSchema = mongoose.Schema({
   stories: Number,
   spaces: String,
 });
+
 module.exports = {
   House: mongoose.model('House', houseSchema),
   House_test: mongoose.model('House_test', houseSchema),
-}
+};
