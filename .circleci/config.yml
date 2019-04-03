@@ -1,18 +1,18 @@
 # version: 2
-# jobs: 
+# jobs:
 #   build:
 #     docker:
 #       - image: circleci/node:8.15.0
 #     working_directory: ~/GenDesc
 #     steps:
 #       - checkout
-#      
-#       - run: 
+#
+#       - run:
 #           name: build
 #           command: npm build
-#       - run: 
+#       - run:
 #           name: client-test
-#           command: mocha ./public/test-bundle.js --require ./test/setup.js 
+#           command: mocha ./public/test-bundle.js --require ./test/setup.js
 #       -run:
 #           name: server-test
 #           command: npm test
@@ -64,22 +64,23 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-  test:
-    docker:
-      - image: circleci/node:8.15.0
-    steps:
-      - checkout
       - run:
           name: Test
           command: npm install & npm test & npm run test:client:circleci
+#   test:
+#     docker:
+#       - image: circleci/node:8.15.0
+#     steps:
+#       - checkout
+#       - run:
+#           name: Test
+#           command: npm install & npm test & npm run test:client:circleci
 
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
-            
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build
+#       - test:
+#           requires:
+#             - build
