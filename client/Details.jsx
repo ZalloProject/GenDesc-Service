@@ -63,7 +63,7 @@ var Details = ({ house, toggle, handleClick }) => {
         </div>
       </div>
       {toggle ? <ShowMore house={house} /> : null}
-      <div id={style.seeMore} type="button" onClick={handleClick}>
+      <div id={style.seeMore} onClick={handleClick}>
         {toggle ? 'See Fewer Facts and Features ▲ ' : 'See More Facts and Features ▼'}
       </div>
     </div>
