@@ -35,6 +35,7 @@ class MortgageCalculator extends React.Component {
   handleChange(e) {
     e.persist();
     let state = {};
+    console.log(e);
     switch (e.target.id) {
       case 'priceInput': {
         let val = e.target.value;
@@ -70,7 +71,7 @@ class MortgageCalculator extends React.Component {
         this.setState(state);
         break;
       }
-      case 'select-loan-term': {
+      case style.selectLoanTerm: {
         this.setState({ duration: Number(e.target.value) * 12 }, () => this.calculateMonthly());
       }
     }
