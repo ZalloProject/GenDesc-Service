@@ -30,6 +30,7 @@
     "babel-plugin-react-css-modules": "^5.2.4",
     "chai": "^4.2.0",
     "circleci": "^0.3.3",
+    "cors": "^2.8.5",
     "css-loader": "^2.1.1",
     "css-modules-require-hook": "^4.2.3",
     "dotenv": "^7.0.0",
