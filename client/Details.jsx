@@ -7,17 +7,17 @@ var Details = ({ house, toggle, handleClick }) => {
   let key = 0;
   return (
     <div className={style.containerInterior}>
-      <p className={style.moreInfoTitle}>INTERIOR FEATURES</p>
+      <p className={style.noMargin + ' ' + style.moreInfoTitle}>INTERIOR FEATURES</p>
       <div className={style.interiorContainerInterior}>
         <div className={style.containerBiggerFact}>
-          <h4>Bedrooms</h4>
+          <h4 className={style.noMargin}>Bedrooms</h4>
           <div>
             <span className={style.greyedOut}>Beds: </span>
             {house.beds}
           </div>
         </div>
         <div className={style.containerBiggerFact}>
-          <h4>Heating and Cooling</h4>
+          <h4 className={style.noMargin}>Heating and Cooling</h4>
           <div>
             <span className={style.greyedOut}>Heating: </span>
             {house.heating}
@@ -28,20 +28,20 @@ var Details = ({ house, toggle, handleClick }) => {
           </div>
         </div>
         <div className={style.containerBiggerFact}>
-          <h4>Basement</h4>
+          <h4 className={style.noMargin}>Basement</h4>
           <div>
             <span>No basement</span>
           </div>
         </div>
         <div className={style.containerBiggerFact}>
-          <h4>Appliances</h4>
+          <h4 className={style.noMargin}>Appliances</h4>
           <div>
             <span className={style.greyedOut}>Appliances included: </span>
             <div>{house.appliances.length ? house.appliances.join(', ') : 'None'}</div>
           </div>
         </div>
         <div className={style.containerBiggerFact}>
-          <h4>Flooring</h4>
+          <h4 className={style.noMargin}>Flooring</h4>
           <div>
             <span className={style.greyedOut}>Floor size: </span>
             {house.floorSize} sqft
@@ -52,7 +52,7 @@ var Details = ({ house, toggle, handleClick }) => {
           </div>
         </div>
         <div className={style.containerBiggerFact}>
-          <h4>Interior Features</h4>
+          <h4 className={style.noMargin}>Interior Features</h4>
           {house.interiorFeatures.map(feat => {
             return <div key={key++}>{feat}</div>;
           })}

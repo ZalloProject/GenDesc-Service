@@ -52,17 +52,17 @@ var FactsAndFeatures = ({ house }) => {
   };
   return (
     <div className={style.containerFacts}>
-      <h3>Facts and Features</h3>
+      <h3 className={style.noMargin}>Facts and Features</h3>
       <div className={style.containerFactsItems}>
         {Object.entries(quickFacts).map(fact => {
           let id = fact[0];
           fact = fact[1];
           return (
             <div key={key++} className={style.fact} id={`facts-${id}`}>
-              <img src={fact.img} />
+              <img style={{ width: '30px', height: '30px', marginRight: '10px' }} src={fact.img} />
               <div>
-                <h4>{fact.label}</h4>
-                <p>{fact.val}</p>
+                <h4 className={style.noMargin}>{fact.label}</h4>
+                <p className={style.noMargin}>{fact.val}</p>
               </div>
             </div>
           );
