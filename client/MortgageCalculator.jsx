@@ -35,7 +35,6 @@ class MortgageCalculator extends React.Component {
   handleChange(e) {
     e.persist();
     let state = {};
-    console.log(e);
     switch (e.target.id) {
       case 'priceInput': {
         let val = e.target.value;
@@ -79,7 +78,10 @@ class MortgageCalculator extends React.Component {
   render() {
     return (
       <div className={style.containerCalculator}>
-        <div>${Intl.NumberFormat().format(this.state.estimate)}/mo</div>
+        <div>
+          ${Intl.NumberFormat().format(this.state.estimate.toFixed(2))}
+          /mo
+        </div>
         <div
           id={style.calculatorButton}
           onClick={() => this.setState({ calcToggle: !this.state.calcToggle })}

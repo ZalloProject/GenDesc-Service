@@ -12,6 +12,17 @@ class GenDesc extends React.Component {
       toggle: false
     };
   }
+  componentWillMount() {
+    window.addEventListener('house_view', e => {
+      fetch(
+        `http://ec2-52-14-98-3.us-east-2.compute.amazonaws.com/houses/${Math.floor(
+          Math.random() * 98
+        )}`
+      )
+        .then(res => res.json())
+        .then(house => this.setState({ house }));
+    });
+  }
   toggle() {
     this.setState({ toggle: !this.state.toggle });
   }
